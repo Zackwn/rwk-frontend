@@ -1,0 +1,31 @@
+{
+  "name": "rwk_frontend",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.15.2",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "latest",
+    "next-images": "^1.6.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^3.0.3",
+    "styled-components": "^5.2.1"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.9",
+    "@types/node": "^14.14.8",
+    "@types/react": "^16.9.56",
+    "@types/socket.io": "^2.1.11",
+    "@types/socket.io-client": "^1.4.34",
+    "@types/styled-components": "^5.1.4",
+    "ts-node": "^9.0.0",
+    "ts-node-dev": "^1.0.0",
+    "typescript": "^4.0.5"
+  }
+}
