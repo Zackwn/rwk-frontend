@@ -17,7 +17,8 @@ interface SocketContext {
   getRoom(): string | null
   getStatusData(): IStatusData[]
   setRoom: React.Dispatch<React.SetStateAction<string>>
-  setStatusData: React.Dispatch<React.SetStateAction<IStatusData[]>>
+  setStatusData: React.Dispatch<React.SetStateAction<IStatusData[]>>,
+  socket: Socket
 }
 
 export default React.createContext<SocketContext>({} as SocketContext)

@@ -52,7 +52,7 @@ const Status: React.FC = () => {
                 {el.url}
               </StatusElement>
             )
-          }) : <h2 style={{ color: 'white', fontFamily: 'Work Sans', fontWeight: 500 }}>All were send</h2>}
+          }) : <h2 style={{ color: 'white', fontFamily: 'Work Sans', fontWeight: 500 }}>Tudo foi enviado</h2>}
         </StatusContainer>
       </div>
     </Container>
