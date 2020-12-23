@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import AuthContext from '../hooks/auth/AuthContext';
 import { useRouter } from 'next/router'
+import { Loader } from '../components/Loader';
+import { AlignCenter } from '../components/AlignCenter';
 
 const Auth: React.FC = () => {
   const router = useRouter()
@@ -14,11 +16,11 @@ const Auth: React.FC = () => {
 
       console.log({ code })
 
-      if (code) {
+      if (code !== null) {
         await signInCallback(code)
         router.push('/enviar')
       } else {
-        router.push('/')
+        router.push('/enviar')
       }
     }
 
@@ -26,9 +28,9 @@ const Auth: React.FC = () => {
   }, [])
 
   return (
-    <div>
-      Fazendo Auth...
-    </div>
+    <AlignCenter background='#fff'>
+      <Loader />
+    </AlignCenter>
   )
 }
 

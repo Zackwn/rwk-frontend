@@ -13,4 +13,6 @@ export const Button = styled.button`
   font-family: 'Work Sans', sans-serif;
 
   float: right;
+
+  cursor: pointer;
 `

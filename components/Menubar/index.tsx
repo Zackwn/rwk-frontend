@@ -20,7 +20,7 @@ const Menubar: React.FC = () => {
         <img src={LogoText} alt="RWK Logo" width={100} />
       </div>
       <nav style={{ display: 'flex', alignItems: 'center', gap: '45px', color: 'white' }} >
-        <NextLink href='/'>
+        <NextLink href='/enviar'>
           <StyledLink>Enviar</StyledLink>
         </NextLink>
         <StyledLink href="https://www.buymeacoffee.com/rafaelzk" target="_blank" rel="noopener noreferrer">Doação</StyledLink>

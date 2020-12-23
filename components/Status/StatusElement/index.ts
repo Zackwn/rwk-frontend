@@ -18,6 +18,7 @@ export const StatusElement = styled.div<StatusElement>`
   color: white;
   box-shadow: 5px 5px 15px -2px var(--discord-dark-gray);
   transition: background-color 0.3s ease-in;
+  overflow: hidden;
 
   & + & {
     margin-top: 15px;

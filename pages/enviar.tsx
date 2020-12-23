@@ -8,6 +8,8 @@ import Menubar from '../components/Menubar'
 import fetch from 'isomorphic-unfetch'
 import SocketContext from '../hooks/socket/socketContext'
 import { useRouter } from 'next/router'
+import AuthContext from '../hooks/auth/AuthContext'
+import { Loader } from '../components/Loader'
 
 interface SendoFormProps {
   message: string
@@ -15,6 +17,7 @@ interface SendoFormProps {
 
 const SendForm: NextPage<SendoFormProps> = () => {
   const router = useRouter()
+  const { accessToken } = useContext(AuthContext)
 
   const [discordURL, setDiscordURL] = useState('')
   const [subreddit, setSubreddit] = useState('')
@@ -22,19 +25,24 @@ const SendForm: NextPage<SendoFormProps> = () => {
 
   const { getSocketID, setRoom, setStatusData } = useContext(SocketContext)
 
+  const [submitted, setSubmitted] = useState(false)
+
   async function handleSubmit(event: FormEvent) {
     event.preventDefault()
 
     console.log(getSocketID())
 
+    setSubmitted(true)
+
     const response = await fetch(`${process.env.API_URL}/api/send`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'socketid': getSocketID(),
+        'access_token': accessToken
       },
       body: JSON.stringify({
-        socketID: getSocketID(),
         limit,
         subreddit,
         webhookUrl: discordURL
@@ -45,6 +53,8 @@ const SendForm: NextPage<SendoFormProps> = () => {
 
     setRoom(res.room)
     setStatusData(res.statusData)
+
+    setSubmitted(false)
 
     router.push('/status')
   }
@@ -76,7 +86,9 @@ const SendForm: NextPage<SendoFormProps> = () => {
               onChange={({ target }) => setSubreddit(target.value)}
             />
 
-            <Button type='submit'>Enviar</Button>
+            <Button disabled={submitted} type='submit'>
+              {submitted ? <Loader small /> : 'Enviar'}
+            </Button>
           </form>
         </Content>
       </Container>
