@@ -8,6 +8,6 @@ module.exports = withImages({
     REDDIT_APP_SECRET: process.env.REDDIT_APP_SECRET,
     REDDIT_AUTH_URL: 'https://www.reddit.com/api/v1/authorize',
     REDDIT_GET_TOKEN_URL: 'https://www.reddit.com/api/v1/access_token',
-    REDDIT_REDIRECT_URL: 'http://localhost:3000/auth/'
+    REDDIT_REDIRECT_URL: process.env.NODE_ENV === "production" ? 'https://rwk.zackwn.vercel.app/auth/' : 'http://localhost:3000/auth/'
   },
 })

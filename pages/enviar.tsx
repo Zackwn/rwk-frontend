@@ -79,12 +79,12 @@ const SendForm: NextPage<SendoFormProps> = () => {
               onChange={({ target }) => setDiscordURL(target.value)}
             />
 
-            <InputField
+            {/* <InputField
               label='Subreddit'
               type='text'
               placeholder='coloque o nome do subreddit aqui'
               onChange={({ target }) => setSubreddit(target.value)}
-            />
+            /> */}
 
             <Button disabled={submitted} type='submit'>
               {submitted ? <Loader small /> : 'Enviar'}
