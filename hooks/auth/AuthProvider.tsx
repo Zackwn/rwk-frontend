@@ -40,7 +40,7 @@ const AuthProvider: React.FC = ({ children }) => {
         state: id(),
         redirect_uri: process.env.REDDIT_REDIRECT_URL,
         duration: 'temporary',
-        scope: 'read'
+        scope: 'read identity'
       })}`
     )
   }
